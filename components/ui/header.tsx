@@ -1,42 +1,38 @@
-// "use client";
 import React from "react";
-import { Button } from "@/components/ui/button";;
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "./button";
 import {
-  PenBox,
-  LayoutDashboard,
+  ChevronDown,
   FileText,
   GraduationCap,
-  ChevronDown,
+  LayoutDashboard,
+  PenBox,
   StarsIcon,
 } from "lucide-react";
-import Link from "next/link";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import {
   DropdownMenu,
+  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import Image from "next/image";
-// import { checkUser } from "@/lib/checkUser";
+} from "@radix-ui/react-dropdown-menu";
 
-export default async function Header() {
-  // await checkUser();
-
+const Header = () => {
   return (
-    <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
+    <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-backdrop-filter:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/">
           <Image
-            src={"/logo.png"}
-            alt="Sensai Logo"
-            width={200}
-            height={60}
-            className="h-12 py-1 w-auto object-contain"
+            src={"/Growvia_Logo.png"}
+            alt="Growvia Logo"
+            width={500}
+            height={70}
+            className="h-20
+             py-2 w-auto object-contain"
           />
         </Link>
-
-        {/* Action Buttons */}
+        {/* ---------------action button--------------------- */}
         <div className="flex items-center space-x-2 md:space-x-4">
           <SignedIn>
             <Link href="/dashboard">
@@ -45,14 +41,15 @@ export default async function Header() {
                 className="hidden md:inline-flex items-center gap-2"
               >
                 <LayoutDashboard className="h-4 w-4" />
-                Industry Insights
+                <span className="hidden md:block "> Industry Insights </span>
               </Button>
               <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
                 <LayoutDashboard className="h-4 w-4" />
               </Button>
             </Link>
 
-            {/* Growth Tools Dropdown */}
+            {/* -------------------------Growth Tool--------------------- */}
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="flex items-center gap-2">
@@ -77,6 +74,17 @@ export default async function Header() {
                     Cover Letter
                   </Link>
                 </DropdownMenuItem>
+
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="/ai-cover-letter"
+                    className="flex items-center gap-2"
+                  >
+                    <PenBox className="h-4 w-4" />
+                    Career Guide
+                  </Link>
+                </DropdownMenuItem>
+
                 <DropdownMenuItem asChild>
                   <Link href="/interview" className="flex items-center gap-2">
                     <GraduationCap className="h-4 w-4" />
@@ -85,6 +93,7 @@ export default async function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+            
           </SignedIn>
 
           <SignedOut>
@@ -105,8 +114,11 @@ export default async function Header() {
               afterSignOutUrl="/"
             />
           </SignedIn>
+          
         </div>
       </nav>
     </header>
   );
-}
+};
+
+export default Header;

@@ -1,5 +1,3 @@
-
-
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from "next/server";
 
@@ -9,11 +7,8 @@ const isProtectedRoute = createRouteMatcher([
   "/interview(.*)",
   "/ai-cover-letter(.*)",
   "/onboarding(.*)",
-
 ])
 
-// This line is changed
-export const proxy = clerkMiddleware();
 
 export default clerkMiddleware(async (auth, req) => {
   const { userId } = await auth();
