@@ -34,7 +34,7 @@ export default function RootLayout({
             {/*footer*/}
             <footer className="bg bg-muted/50 py-12">
               <div className=" container mx-auto px-4 text-center text-grey-200">
-                <p> love from debjit</p>
+                <p> @copyright - Growvia 2025</p>
               </div>
             </footer>
           </ThemeProvider>

@@ -32,7 +32,7 @@ const Header = () => {
       <nav className="container mx-auto px-4 h-18 flex items-center justify-between">
         <Link href="/">
           <Image
-            src={"/Growvia_Logo.png"}
+            src={"/logo02.png"}
             alt="Growvia Logo"
             width={500}
             height={70}
@@ -71,7 +71,9 @@ const Header = () => {
               <HelpCircle className="h-8 w-8" />
               FAQs
             </Link>
-          </div><div className="md:hidden">
+          </div>
+          {/* humberger for mobile screen */}
+          <div className="md:hidden">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="w-10 h-10 p-0">

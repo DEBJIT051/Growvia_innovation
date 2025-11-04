@@ -34,19 +34,19 @@ const imageRef = useRef<HTMLDivElement>(null);
 
 
   return (
-    <section className="w-full pt-36 md:pt-48 pb-10">
+    <section id="about-us" className="w-full pt-36 md:pt-48 pb-10">
         <div className="space-y-6 text-center">
             <div className="space-y-6 mx-auto">
                 <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient gradient-title animate-gradient">
                     The Best Career Guide
                 </h1>
                 <h2 className="text-5xl font-bold md:text-4xl lg:text-5xl xl:text-6xl gradient-yellow gradient-title animate-gradient">
-                  not just an app but your own brother.
+                  Not just an app but your own brother.
                   </h2>
                 <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, vero debitis pariatur <br/>
-                    aperiam repudiandae nesciunt minima. Dicta obcaecati architecto nesciunt vitae ipsa distinctio<br/>
-                    voluptatem aliquid nulla quae magni? Eaque, quo.
+                    Let&apos;s face it. Human career advices are monotonous and they disappoint. 
+                    You are in luck because Growvia won&apos;t. We look forward to sharing your journey,
+                    all nighters and commitment to your skills.
                 </p>
             </div>
 
@@ -67,7 +67,7 @@ const imageRef = useRef<HTMLDivElement>(null);
             <div className="hero-image-wrapper mt-5 md:mt-0">
                 <div ref={imageRef} className="hero-image">
                     <Image 
-                    src={'/banner.jpeg'}
+                    src={'/banner01.jpg'}
                     width={1280}
                     height={720} 
                     alt="banner Growvia"

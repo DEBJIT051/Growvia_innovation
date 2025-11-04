@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-// import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { faqs } from "@/Data/faqs";
 import { features } from "@/Data/features";
 import { howItWorks } from "@/Data/howItWorks";
@@ -75,59 +75,72 @@ export default function Home() {
         </div>
       </section>
 
-     {/* Stats Section */}
-<section className="w-full py-12 md:py-24 bg-muted/50">
-  <div className="container mx-auto px-4 md:px-6">
-    
-    {/* TITLE: This should be outside the stats grid */}
-    <div className="text-center mb-12 scroll-animate-fade-up">
-      <h2 className="text-3xl font-bold tracking-tighter gradient-yellow gradient-title ">
-        Industry Status
-      </h2>
-    </div>
+      {/* Stats Section */}
+      <section id="stats" className="w-full py-12 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          {/* TITLE: This should be outside the stats grid */}
+          <div className="text-center mb-12 scroll-animate-fade-up">
+            <h2 className="text-3xl font-bold tracking-tighter text-yellow-400">
+              Industry Status
+            </h2>
+          </div>
 
-    {/* STATS GRID: 
-      This is ONE grid container that holds ALL FOUR stat items. 
-    */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center scroll-animate-fade-up">
-      
-      {/* Stat 1 */}
-      <div className="flex flex-col items-center justify-center space-y-2">
-        <h3 className="text-4xl font-bold">500+</h3>
-        <p className="text-muted-foreground">
-          Global Industries Covered
-        </p>
-      </div>
+          {/* STATS GRID:*/}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center scroll-animate-fade-up">
+            {/* Stat 1 ->  Global Industries Covered */}
+            <div className="flex flex-col items-center justify-center space-y-2 transition-transform duration-200 ease-out hover:scale-150">
+              <AnimatedCounter
+                targetValue={500}
+                suffix="+"
+                className="text-7xl font-bold"
+              />
+              <p className="text-muted-foreground">
+                Global Industries Covered
+              </p>
+            </div>
 
-      {/* Stat 2 (This was your duplicate, you can change it) */}
-      <div className="flex flex-col items-center justify-center space-y-2">
-        <h3 className="text-4xl font-bold">1000+</h3>
-        <p className="text-muted-foreground">
-          Researched Interview Questions
-        </p>
-      </div>
+            {/* Stat 2 -> Researched Interview Questions  */}
+            <div className="flex flex-col items-center justify-center space-y-2 transition-transform duration-200 ease-out hover:scale-150">
+              <AnimatedCounter
+                targetValue={1000}
+                suffix="+"
+                className="text-6xl font-bold"
+              />
+              <p className="text-muted-foreground">
+                Researched Interview Questions
+              </p>
+            </div>
 
-      {/* Stat 3 */}
-      <div className="flex flex-col items-center justify-center space-y-2">
-        <h3 className="text-4xl font-bold">24/7</h3>
-        <p className="text-muted-foreground">AI Support</p>
-      </div>
+            {/* Stat 3 -> AI Support */}
+            <div className="flex flex-col items-center justify-center space-y-2 transition-transform duration-200 ease-out hover:scale-150">
+              <AnimatedCounter
+                targetValue={24}
+                suffix="/7"
+                className="text-6xl font-bold"
+              />
+              <p className="text-muted-foreground">AI Support</p>
+            </div>
 
-      {/* Stat 4 */}
-      <div className="flex flex-col items-center justify-center space-y-2">
-        <h3 className="text-4xl font-bold">95%</h3>
-        <p className="text-muted-foreground">Success Rate</p>
-      </div>
-
-    </div>
-  </div>
-</section>
+            {/* Stat 4 -> Success Rate */}
+            <div className="flex flex-col items-center justify-center space-y-2 transition-transform duration-200 ease-out hover:scale-150">
+              <AnimatedCounter
+                targetValue={98}
+                suffix="%"
+                className="text-6xl font-bold"
+              />
+              <p className="text-muted-foreground">Success Rate</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* How It Works Section */}
-      <section className="w-full py-12 md:py-24 bg-background">
+      <section id="working" className="w-full py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12 scroll-animate-fade-up">
-            <h2 className="text-3xl font-bold mb-4 gradient-yellow gradient-title ">How It Works</h2>
+            <h2 className="text-3xl font-bold mb-4 gradient-yellow gradient-title ">
+              How It Works
+            </h2>
             <p className="text-muted-foreground">
               Four simple steps to accelerate your career growth
             </p>
@@ -135,17 +148,19 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {howItWorks.map((item, index) => (
-              <div
+              <Card
                 key={index}
-                className="flex flex-col items-center text-center space-y-4 scroll-animate-fade-up"
+                className="flex flex-col items-center text-center space-y-4 scroll-animate-fade-up transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/30"
                 style={{ transitionDelay: `${index * 100}ms` }} // Staggered delay
               >
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                  {item.icon}
-                </div>
-                <h3 className="font-semibold text-xl">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </div>
+                <CardContent className="pt-6 text-center flex flex-col items-center space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <h3 className="font-semibold text-xl">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -153,7 +168,7 @@ export default function Home() {
 
       {/* What our user say */}
 
-      <section className="w-full py-12 md:py-24 bg-muted/50">
+      <section id="faqs" className="w-full py-12 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold text-center mb-12 scroll-animate-fade-up gradient-yellow gradient-title ">
             What Our Users Say
@@ -207,7 +222,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="w-full py-12 md:py-24">
+      <section id="" className="w-full py-12 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12 scroll-animate-fade-up">
             <h2 className="text-3xl font-bold mb-4 gradient-yellow gradient-title ">
